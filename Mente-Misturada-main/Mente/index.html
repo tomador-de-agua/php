@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Misturada Decisão</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    function user() {
+      window.location.href = "public/users/cadastro_user.php";
+    }
+    function admin() {
+      window.location.href = "src/admin/cadastro_adm.php";
+    }
+  </script>
+
+  <style>
+
+  </style>
+</head>
+<body style="background-color: linear-gradient(to bottom, rgb(203, 65, 238), rgb(134, 96, 165));" class="min-h-screen flex items-center justify-center ">
+
+  <div class="bg-white border border-gray-300 shadow-xl rounded-xl p-8 max-w-md w-full text-center">
+    <h1 class="text-2xl font-bold mb-6 text-gray-800">Você deseja logar como:</h1>
+
+    <div class="flex flex-col gap-4">
+      <button 
+        onclick="admin()" 
+        class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition"
+      >
+        Administrador
+      </button>
+
+      <button 
+        onclick="user()" 
+        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition"
+      >
+        Usuário
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
