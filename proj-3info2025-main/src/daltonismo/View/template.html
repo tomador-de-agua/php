@@ -1,13 +1,140 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daltonismo</title>
+    <title>Dynamic Table with Multiple Selects</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        Bem vindo áo daltosniismo teste
-    </h1>
+<h2>Dynamic Table with Multiple Selects</h2>
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Coluna 1</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div class="select-container">
+                    <select>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <button onclick="addSelect(this)">Add Select</button>
+                    <button onclick="removeSelect(this)">Remove Select</button>
+                </div>
+            </td>
+            <td><button onclick="removeRow(this)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<table id="myTable">
+<button onclick="addRow()">Add Row</button>
+<button onclick="addColumn()">Adicionar Coluna</button>
+<button onclick="removeColumn()">Remover Coluna</button>
+<script>
+function addRow() {
+    const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+    const headerCells = document.getElementById("myTable").getElementsByTagName('thead')[0].rows[0].cells.length;
+    const newRow = table.insertRow();
+    for (let i = 0; i < headerCells; i++) {
+        if (i === headerCells - 1) {
+            newRow.insertCell(i).innerHTML = `<button onclick="removeRow(this)">Remove</button>`;
+        } else {
+            newRow.insertCell(i).innerHTML = `
+                <div class="select-container">
+                    <select>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <button onclick="addSelect(this)">Add Select</button>
+                    <button onclick="removeSelect(this)">Remove Select</button>
+                </div>
+            `;
+        }
+    }
+}
+function addSelect(button) {
+    const container = button.parentNode;
+    const newSelect = document.createElement("select");
+    newSelect.innerHTML = `
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    `;
+    container.insertBefore(newSelect, button);
+}
+function removeSelect(button) {
+    const container = button.parentNode;
+    const selects = container.querySelectorAll('select');
+    if (selects.length > 0) {
+        container.removeChild(selects[selects.length - 1]);
+    }
+}
+function removeRow(button) {
+    const row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+function addColumn() {
+    const table = document.getElementById("myTable");
+    const thead = table.getElementsByTagName('thead')[0];
+    const tbody = table.getElementsByTagName('tbody')[0];
+    // Adiciona nova coluna ao cabeçalho
+    const th = document.createElement('th');
+    th.textContent = `Coluna ${thead.rows[0].cells.length}`;
+    thead.rows[0].insertBefore(th, thead.rows[0].cells[thead.rows[0].cells.length - 1]);
+    // Adiciona nova célula em cada linha do corpo
+    for (let row of tbody.rows) {
+        const td = document.createElement('td');
+        td.innerHTML = `
+            <div class="select-container">
+                <select>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+                <button onclick="addSelect(this)">Add Select</button>
+                <button onclick="removeSelect(this)">Remove Select</button>
+            </div>
+        `;
+        row.insertBefore(td, row.cells[row.cells.length - 1]);
+    }
+}
+function removeColumn() {
+    const table = document.getElementById("myTable");
+    const thead = table.getElementsByTagName('thead')[0];
+    const tbody = table.getElementsByTagName('tbody')[0];
+    const headerCells = thead.rows[0].cells.length;
+    // Só remove se houver mais de 2 colunas (1 coluna + ações)
+    if (headerCells > 2) {
+        // Remove a penúltima coluna do cabeçalho
+        thead.rows[0].deleteCell(headerCells - 2);
+        // Remove a penúltima célula de cada linha do corpo
+        for (let row of tbody.rows) {
+            row.deleteCell(headerCells - 2);
+        }
+    }
+}
+</script>
+<!-- ...existing code... -->
 </body>
 </html>
