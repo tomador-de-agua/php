@@ -17,6 +17,7 @@ if ($soma > 6) {
 }else{
   $daltonismo = "sim";
 }
+//
 ?>
 
 <!DOCTYPE html>

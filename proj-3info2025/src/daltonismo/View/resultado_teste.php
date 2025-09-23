@@ -18,7 +18,7 @@ if ($soma > 6) {
 }
 
 // ============================
-// SALVAR NO BANCO
+// SALVAR NO BANCOasdasd
 // ============================
 
 // aqui vou supor que você tem o id do usuário logado em sessão:
