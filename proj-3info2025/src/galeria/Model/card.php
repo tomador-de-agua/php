@@ -16,7 +16,7 @@ class Card {
     }
 
     public function criar($nome, $imagem, $link) {
-        // Corrissadasdge linksadad
+        // Corrige link
         if (!preg_match("~^(?:f|ht)tps?://~i", $link)) {
             $link = "https://" . $link;
         }
