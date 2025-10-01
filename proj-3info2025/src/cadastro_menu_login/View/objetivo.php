@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marcela — Home</title>
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../public/css/styles.css">
+</head>
+<body id="page-home">
+
+  <?php 
+    include __DIR__ . '/navbar.php'; 
+  ?>
+
+  <!-- vídeo de fundo -->
+  <div class="background-video" aria-hidden="true">
+    <video autoplay loop muted playsinline>
+      <source src="../../../public/img/fundo_da_tela.mp4" type="video/mp4" />
+      Seu navegador não suporta reprodução de vídeo.
+    </video>
+  </div>
+
+  <!-- overlay -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <main class="hero-screen" role="main">
+    <div class="hero">
+      <h1 class="title">Objetivo</h1>
+      <p class="subtitle">
+        Plataforma de pesquisa em genética,<br />
+        simulação genética e árvore genealógica digital
+      </p>
+      <p>
+        <b>Nossa plataforma tem como principais objetivos:</b>
+        <br><br>
+      <ul>
+        <li>Unir ciência, tecnologia e acessibilidade em um único ambiente digital, 
+          oferecendo recursos que tornam o estudo da genética mais prático e interativo.</li>
+        <li>Facilitar a compreensão dos padrões de herança genética por meio de ferramentas de 
+          simulação que permitem explorar cenários familiares e visualizar a transmissão de características 
+          ao longo das gerações.</li>
+        <li>Proporcionar a criação de árvores genealógicas digitais, organizadas e interativas, 
+          que conectam ancestrais e descendentes de forma clara, atendendo tanto a objetivos 
+          acadêmicos quanto pessoais.</li>
+        <li>Aproximar a ciência do cotidiano, tornando o aprendizado sobre genética mais acessível,
+           útil e envolvente para diferentes públicos.</li>
+        </ul>
+        <br><br>
+      </p>
+      <!-- leva para a página de cadastro -->
+      <a class="enter-button" href="cadastro.php" id="enterBtn">Entrar</a>
+    </div>
+
+    <div class="website-link" id="websiteLink">www.MarcelaSHOW.com</div>
+  </main>
+
+  <script src="../../../public/script/app.js"></script>
+</body>
+</html>

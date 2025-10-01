@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BioLineage — Home</title>
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../public/css/styles.css">
+</head>
+<body id="page-home">
+
+  <?php 
+    include __DIR__ . '/navbar.php'; 
+  ?>
+
+  <!-- vídeo de fundo -->
+  <div class="background-video" aria-hidden="true">
+    <video autoplay loop muted playsinline>
+      <source src="../../../public/img/fundo_da_tela.mp4" type="video/mp4" />
+      Seu navegador não suporta reprodução de vídeo.
+    </video>
+  </div>
+
+  <!-- overlay -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <main class="hero-screen" role="main">
+    <div class="hero">
+      <h1 class="title">BioLineage</h1>
+      <p class="subtitle">
+        Plataforma de pesquisa em genética,<br />
+        simulação genética e árvore genealógica digital
+      </p>
+      <p>
+        Nossa plataforma foi desenvolvida para unir ciência, tecnologia e acessibilidade em um só lugar. <br><br>
+        Aqui, você pode explorar informações genéticas de forma prática, simular padrões de herança e visualizar árvores genealógicas digitais de maneira interativa e intuitiva.
+        Com recursos de pesquisa em genética, oferecemos conteúdos atualizados, bases de dados e ferramentas de apoio para estudantes, pesquisadores e curiosos que desejam compreender melhor como os genes influenciam características e doenças. <br><br>
+        Através da simulação genética, é possível experimentar cenários hipotéticos e observar como determinados traços podem ser transmitidos entre gerações, auxiliando no aprendizado e na compreensão de conceitos fundamentais da biologia. <br><br>
+        Já a árvore genealógica digital permite criar representações familiares detalhadas, conectando informações de ancestrais e descendentes em um ambiente visual claro e organizado, ideal tanto para fins acadêmicos quanto pessoais. Nosso objetivo é tornar o estudo da genética mais acessível, interativo e útil, aproximando a ciência do cotidiano.<br><br>
+      </p>
+      <br>
+      <!-- leva para a página de cadastro -->
+      <a class="enter-button" href="cadastro.php" id="enterBtn">Entrar</a>
+    </div>
+
+    <div class="website-link" id="websiteLink">www.MarcelaSHOW.com</div>
+  </main>
+
+  <script src="../../../public/script/app.js"></script>
+</body>
+</html>
